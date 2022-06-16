@@ -1,4 +1,4 @@
-# Tudo começa com uma pergunta
+# Mortes por tuberculose
 
 ## Conextualização do problema de pesquisa
 
@@ -18,3 +18,34 @@ Responder a essas perguntas para o mundo inteiro e por sete anos (2007-2013) ser
 - [POPULAÇÃO DA OMS - DADOS POR PAÍS (ÚLTIMO ANO)](https://github.com/mwermelinger/Learn-to-code-for-data-analysis/raw/master/1_Having_a_go_at_it/WHO%20POP%20TB%20all.xls)
 
 - [MORTALIDADE E PREVALÊNCIA DA OMS - DADOS POR PAÍS (2007 - PRESENTE)](https://github.com/mwermelinger/Learn-to-code-for-data-analysis/raw/master/1_Having_a_go_at_it/WHO%20POP%20TB%20some.xls)
+
+## Dataframes com Pandas
+
+
+![Pandas](https://www.open.edu/openlearn/pluginfile.php/1348056/mod_oucontent/oucontent/69043/cbfeded3/7376536f/ou_futurelearn_learn_to_code_fig_1034.jpg)
+
+
+Três linhas de código foram necessárias para cada país, para armazenar o número de mortes, armazenar a população e calcular a taxa de mortalidade. Com cerca de 200 países no mundo, minha análise trivial exigiria 400 variáveis ​​e digitação de quase 600 linhas de código! A vida é muito curta para ser gasta assim.
+
+Em vez de usar uma variável separada para cada dado, é melhor organizar os dados como uma tabela de linhas e colunas.
+
+|País       |Mortes     |População  |
+|-----------|-----------|-----------|
+|Angola     | 6900      | 21472     |
+|Brasil     | 4400      | 200362    |
+|Portugal   | 140       | 10608     |
+
+Dessa forma, ao invés de 400 variáveis, preciso apenas de uma que armazene a tabela inteira. Em vez de escrever uma expressão de uma milha que adiciona 200 variáveis ​​para obter o total de mortes, escreverei uma expressão curta que calcula o total da coluna 'Mortes', não importa quantos países (linhas) existam.
+
+Para organizar os dados em tabelas e fazer cálculos nessas tabelas, você e eu usaremos o módulo pandas, que está incluído no Anaconda e no CoCalc. Um módulo é um pacote de vários pedaços de código que podem ser usados ​​individualmente. O módulo pandas fornece recursos de análise de dados muito extensos e avançados para complementar o Python. Este curso apenas arranha a superfície dos pandas.
+
+Eu tenho que dizer ao computador que vou usar um módulo.
+
+
+## Obtenção dos dados
+
+Criei uma tabela com todos os dados necessários para o projeto e salvei em um arquivo Excel. O Excel é um aplicativo popular para criar, editar e analisar dados tabulares. Você não precisará do Excel para concluir este curso, mas muitos conjuntos de dados são fornecidos como arquivos do Excel.
+
+Abra o arquivo de dados WHO POP TB some.xls . O arquivo é codificado usando UTF-8, uma codificação de caracteres que permite letras acentuadas. Não abra ou edite o arquivo, pois você pode alterar a forma como ele é codificado, o que levará a erros mais tarde. Se você quiser ver seu conteúdo, faça uma cópia do arquivo e veja a cópia.
+
+Coloque o arquivo de dados na mesma pasta (ou projeto CoCalc) onde você salvou seu caderno de exercícios. Feito? Ótimo, vamos continuar carregando os dados – você aprenderá como fazer isso na próxima seção.
