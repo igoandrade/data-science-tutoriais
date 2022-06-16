@@ -1,0 +1,17 @@
+numpy
+scipy
+sympy
+pandas
+pandas-datareader
+matplotlib
+seaborn
+plotly
+yfinance
+statsmodels
+scikit-learn
+graphviz
+ipykernel
+jupyterlab
+beautifulsoup4
+rpy2
+radian
