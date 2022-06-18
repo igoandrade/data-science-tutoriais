@@ -49,3 +49,7 @@ Criei uma tabela com todos os dados necessários para o projeto e salvei em um a
 Abra o arquivo de dados WHO POP TB some.xls . O arquivo é codificado usando UTF-8, uma codificação de caracteres que permite letras acentuadas. Não abra ou edite o arquivo, pois você pode alterar a forma como ele é codificado, o que levará a erros mais tarde. Se você quiser ver seu conteúdo, faça uma cópia do arquivo e veja a cópia.
 
 Coloque o arquivo de dados na mesma pasta (ou projeto CoCalc) onde você salvou seu caderno de exercícios. Feito? Ótimo, vamos continuar carregando os dados – você aprenderá como fazer isso na próxima seção.
+
+## Escrevendo a análise
+
+![Um mapa identificando os países de língua portuguesa](https://www.open.edu/openlearn/pluginfile.php/1348056/mod_oucontent/oucontent/69043/cbfeded3/16ac6296/ou_futurelearn_learn_to_code_fig_1070.jpg)
