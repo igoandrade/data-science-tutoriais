@@ -16,3 +16,4 @@ beautifulsoup4
 rpy2
 radian
 xlrd
+openpyxl
