@@ -3,7 +3,6 @@ image:
 
 vscode:
   extensions:
-    - ms-toolsai.jupyter
     - ms-python.python
     - Ikuyadeu.r
     - reditorsupport.r-lsp

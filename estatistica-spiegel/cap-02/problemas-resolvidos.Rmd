@@ -1,0 +1,32 @@
+---
+title: "Cap. 2: Distribuições de frequência"
+author: "Igo da Costa Andrade"
+output: pdf_document
+---
+
+
+# Problemas Resolvidos
+
+## Rol 
+
+1. a) Dispor os números 17, 45, 38, 27, 6, 48, 11, 57, 34, 22 em um rol .
+
+```{r}
+data <- c(17, 45, 38, 27, 6, 48, 11, 57, 34, 22)
+
+data.sorted <- sort(data)
+
+data.sorted 
+```
+
+b) Determinar a amplitude total.
+
+```{r}
+max.data <- max(data)
+amplitude <- max(data) - min(data)
+amplitude
+```
+
+A amplitude total é igual a `r 2 + 2
+
+$A = $ `r max.data
