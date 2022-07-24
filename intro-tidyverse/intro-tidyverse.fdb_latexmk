@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1658676664 "/workspace/data-science-tutoriais/intro-tidyverse/intro-tidyverse.tex" "/workspace/data-science-tutoriais/intro-tidyverse/intro-tidyverse.pdf" "intro-tidyverse" 1658676689
+["pdflatex"] 1658676664 "/workspace/data-science-tutoriais/intro-tidyverse/intro-tidyverse.tex" "/workspace/data-science-tutoriais/intro-tidyverse/intro-tidyverse.pdf" "intro-tidyverse" 1658676741
   "/etc/texmf/web2c/texmf.cnf" 1655670975 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -46,12 +46,12 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1655670986 128028 f533b797fba58d231669ea19e894e23e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1655670987 4794203 9420b0e56ff80924128b1547a3bc107b ""
   "/workspace/data-science-tutoriais/intro-tidyverse/intro-tidyverse.aux" 1658676664 233 318d12cddb7bdf40475a63aa12a1b834 ""
-  "/workspace/data-science-tutoriais/intro-tidyverse/intro-tidyverse.tex" 1658676689 4192 63035ebae02fc5f69076247ea7b3c9da ""
+  "/workspace/data-science-tutoriais/intro-tidyverse/intro-tidyverse.tex" 1658676741 4192 63035ebae02fc5f69076247ea7b3c9da ""
   "intro-tidyverse.aux" 1658676664 233 318d12cddb7bdf40475a63aa12a1b834 "pdflatex"
-  "intro-tidyverse.tex" 1658676689 4192 63035ebae02fc5f69076247ea7b3c9da ""
+  "intro-tidyverse.tex" 1658676741 4192 63035ebae02fc5f69076247ea7b3c9da ""
   (generated)
-  "intro-tidyverse.log"
-  "intro-tidyverse.aux"
   "/workspace/data-science-tutoriais/intro-tidyverse/intro-tidyverse.log"
-  "/workspace/data-science-tutoriais/intro-tidyverse/intro-tidyverse.pdf"
+  "intro-tidyverse.log"
   "intro-tidyverse.pdf"
+  "intro-tidyverse.aux"
+  "/workspace/data-science-tutoriais/intro-tidyverse/intro-tidyverse.pdf"
