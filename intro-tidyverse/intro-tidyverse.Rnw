@@ -1,6 +1,12 @@
 \documentclass{article}
+\usepackage[left=3cm,right=2cm,top=3cm,bottom=2cm]{geometry} 
+\usepackage{indentfirst}
+\usepackage{lmodern}	
 \usepackage[utf8]{inputenc}
-
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[font=singlespacing]{caption}
+\usepackage{amsmath, amssymb, amsthm, amsfonts}
 
 \title{Introdução ao \textit{tidyverse}}
 \author{Igo da Costa Andrade}
@@ -13,6 +19,7 @@
 <<include=FALSE>>=
 library(gapminder)
 library(dplyr)
+library(kableExtra)
 @
 
 \section{O \textit{dataset} gapminder}
@@ -22,13 +29,60 @@ Visão geral dos dados:
 gapminder
 @
 
+Filtragem por ano:
 \subsection{Filtragem de dados}
 <<>>=
 gapminder %>%
     filter(year==2007)
-
 @
 
+Filtragem por país:
+<<>>=
+gapminder %>%
+    filter(country == "United States")
+@
+
+Filtragem por ano e por país:
+<<>>=
+gapminder %>%
+    filter(year == 2007, country == 'United States')
+@
+
+
+\subsection{Ordenação}
+
+<<>>=
+gapminder %>%
+    arrange(gdpPercap)
+@
+
+<<>>=
+gapminder %>%
+    arrange(desc(gdpPercap))
+@
+
+\subsection{Combinando filtragem com ordenação}
+
+<<>>=
+x <- gapminder %>%
+    filter(year==2007) %>%
+    arrange(desc(gdpPercap)) %>%
+    head(10)
+@
+
+
+\begin{table}[H]
+    \centering
+    \caption{tabela}
+    \Sexpr{knitr::kable(x, format='latex')}
+\end{table}
+
+<<>>=
+mtcars %>% head(10) %>%
+    kbl(format = "latex") %>%
+    kable_styling(latex_options = c('striped'))
+
+@
 
     
 \end{document}

@@ -49,8 +49,14 @@
 \newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
 
 \usepackage{alltt}
+\usepackage[left=3cm,right=2cm,top=3cm,bottom=2cm]{geometry} 
+\usepackage{indentfirst}
+\usepackage{lmodern}	
 \usepackage[utf8]{inputenc}
-
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[font=singlespacing]{caption}
+\usepackage{amsmath, amssymb, amsthm, amsfonts}
 
 \title{Introdução ao \textit{tidyverse}}
 \author{Igo da Costa Andrade}
@@ -89,6 +95,7 @@ Visão geral dos dados:
 \end{kframe}
 \end{knitrout}
 
+Filtragem por ano:
 \subsection{Filtragem de dados}
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -115,6 +122,186 @@ Visão geral dos dados:
 \end{kframe}
 \end{knitrout}
 
+Filtragem por país:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{gapminder} \hlopt{%>%}
+    \hlkwd{filter}\hlstd{(country} \hlopt{==} \hlstr{"United States"}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## # A tibble: 12 x 6
+##    country       continent  year lifeExp       pop gdpPercap
+##    <fct>         <fct>     <int>   <dbl>     <int>     <dbl>
+##  1 United States Americas   1952    68.4 157553000    13990.
+##  2 United States Americas   1957    69.5 171984000    14847.
+##  3 United States Americas   1962    70.2 186538000    16173.
+##  4 United States Americas   1967    70.8 198712000    19530.
+##  5 United States Americas   1972    71.3 209896000    21806.
+##  6 United States Americas   1977    73.4 220239000    24073.
+##  7 United States Americas   1982    74.6 232187835    25010.
+##  8 United States Americas   1987    75.0 242803533    29884.
+##  9 United States Americas   1992    76.1 256894189    32004.
+## 10 United States Americas   1997    76.8 272911760    35767.
+## 11 United States Americas   2002    77.3 287675526    39097.
+## 12 United States Americas   2007    78.2 301139947    42952.
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+Filtragem por ano e por país:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{gapminder} \hlopt{%>%}
+    \hlkwd{filter}\hlstd{(year} \hlopt{==} \hlnum{2007}\hlstd{, country} \hlopt{==} \hlstr{'United States'}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## # A tibble: 1 x 6
+##   country       continent  year lifeExp       pop gdpPercap
+##   <fct>         <fct>     <int>   <dbl>     <int>     <dbl>
+## 1 United States Americas   2007    78.2 301139947    42952.
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+\subsection{Ordenação}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{gapminder} \hlopt{%>%}
+    \hlkwd{arrange}\hlstd{(gdpPercap)}
+\end{alltt}
+\begin{verbatim}
+## # A tibble: 1,704 x 6
+##    country          continent  year lifeExp      pop gdpPercap
+##    <fct>            <fct>     <int>   <dbl>    <int>     <dbl>
+##  1 Congo, Dem. Rep. Africa     2002    45.0 55379852      241.
+##  2 Congo, Dem. Rep. Africa     2007    46.5 64606759      278.
+##  3 Lesotho          Africa     1952    42.1   748747      299.
+##  4 Guinea-Bissau    Africa     1952    32.5   580653      300.
+##  5 Congo, Dem. Rep. Africa     1997    42.6 47798986      312.
+##  6 Eritrea          Africa     1952    35.9  1438760      329.
+##  7 Myanmar          Asia       1952    36.3 20092996      331 
+##  8 Lesotho          Africa     1957    45.0   813338      336.
+##  9 Burundi          Africa     1952    39.0  2445618      339.
+## 10 Eritrea          Africa     1957    38.0  1542611      344.
+## # ... with 1,694 more rows
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{gapminder} \hlopt{%>%}
+    \hlkwd{arrange}\hlstd{(}\hlkwd{desc}\hlstd{(gdpPercap))}
+\end{alltt}
+\begin{verbatim}
+## # A tibble: 1,704 x 6
+##    country   continent  year lifeExp     pop gdpPercap
+##    <fct>     <fct>     <int>   <dbl>   <int>     <dbl>
+##  1 Kuwait    Asia       1957    58.0  212846   113523.
+##  2 Kuwait    Asia       1972    67.7  841934   109348.
+##  3 Kuwait    Asia       1952    55.6  160000   108382.
+##  4 Kuwait    Asia       1962    60.5  358266    95458.
+##  5 Kuwait    Asia       1967    64.6  575003    80895.
+##  6 Kuwait    Asia       1977    69.3 1140357    59265.
+##  7 Norway    Europe     2007    80.2 4627926    49357.
+##  8 Kuwait    Asia       2007    77.6 2505559    47307.
+##  9 Singapore Asia       2007    80.0 4553009    47143.
+## 10 Norway    Europe     2002    79.0 4535591    44684.
+## # ... with 1,694 more rows
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\subsection{Combinando filtragem com ordenação}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{x} \hlkwb{<-} \hlstd{gapminder} \hlopt{%>%}
+    \hlkwd{filter}\hlstd{(year}\hlopt{==}\hlnum{2007}\hlstd{)} \hlopt{%>%}
+    \hlkwd{arrange}\hlstd{(}\hlkwd{desc}\hlstd{(gdpPercap))} \hlopt{%>%}
+    \hlkwd{head}\hlstd{(}\hlnum{10}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+\begin{table}[H]
+    \centering
+    \caption{tabela}
+    
+\begin{tabular}{l|l|r|r|r|r}
+\hline
+country & continent & year & lifeExp & pop & gdpPercap\\
+\hline
+Norway & Europe & 2007 & 80.196 & 4627926 & 49357.19\\
+\hline
+Kuwait & Asia & 2007 & 77.588 & 2505559 & 47306.99\\
+\hline
+Singapore & Asia & 2007 & 79.972 & 4553009 & 47143.18\\
+\hline
+United States & Americas & 2007 & 78.242 & 301139947 & 42951.65\\
+\hline
+Ireland & Europe & 2007 & 78.885 & 4109086 & 40676.00\\
+\hline
+Hong Kong, China & Asia & 2007 & 82.208 & 6980412 & 39724.98\\
+\hline
+Switzerland & Europe & 2007 & 81.701 & 7554661 & 37506.42\\
+\hline
+Netherlands & Europe & 2007 & 79.762 & 16570613 & 36797.93\\
+\hline
+Canada & Americas & 2007 & 80.653 & 33390141 & 36319.24\\
+\hline
+Iceland & Europe & 2007 & 81.757 & 301931 & 36180.79\\
+\hline
+\end{tabular}
+
+
+\end{table}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{mtcars} \hlopt{%>%} \hlkwd{head}\hlstd{(}\hlnum{10}\hlstd{)} \hlopt{%>%}
+    \hlkwd{kbl}\hlstd{(}\hlkwc{format} \hlstd{=} \hlstr{"latex"}\hlstd{)} \hlopt{%>%}
+    \hlkwd{kable_styling}\hlstd{(}\hlkwc{latex_options} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{'striped'}\hlstd{))}
+\end{alltt}
+\end{kframe}\begin{table}
+\centering
+\begin{tabular}[t]{l|r|r|r|r|r|r|r|r|r|r|r}
+\hline
+  & mpg & cyl & disp & hp & drat & wt & qsec & vs & am & gear & carb\\
+\hline
+\cellcolor{gray!6}{Mazda RX4} & \cellcolor{gray!6}{21.0} & \cellcolor{gray!6}{6} & \cellcolor{gray!6}{160.0} & \cellcolor{gray!6}{110} & \cellcolor{gray!6}{3.90} & \cellcolor{gray!6}{2.620} & \cellcolor{gray!6}{16.46} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{4}\\
+\hline
+Mazda RX4 Wag & 21.0 & 6 & 160.0 & 110 & 3.90 & 2.875 & 17.02 & 0 & 1 & 4 & 4\\
+\hline
+\cellcolor{gray!6}{Datsun 710} & \cellcolor{gray!6}{22.8} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{108.0} & \cellcolor{gray!6}{93} & \cellcolor{gray!6}{3.85} & \cellcolor{gray!6}{2.320} & \cellcolor{gray!6}{18.61} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{1}\\
+\hline
+Hornet 4 Drive & 21.4 & 6 & 258.0 & 110 & 3.08 & 3.215 & 19.44 & 1 & 0 & 3 & 1\\
+\hline
+\cellcolor{gray!6}{Hornet Sportabout} & \cellcolor{gray!6}{18.7} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{360.0} & \cellcolor{gray!6}{175} & \cellcolor{gray!6}{3.15} & \cellcolor{gray!6}{3.440} & \cellcolor{gray!6}{17.02} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{3} & \cellcolor{gray!6}{2}\\
+\hline
+Valiant & 18.1 & 6 & 225.0 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
+\hline
+\cellcolor{gray!6}{Duster 360} & \cellcolor{gray!6}{14.3} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{360.0} & \cellcolor{gray!6}{245} & \cellcolor{gray!6}{3.21} & \cellcolor{gray!6}{3.570} & \cellcolor{gray!6}{15.84} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{3} & \cellcolor{gray!6}{4}\\
+\hline
+Merc 240D & 24.4 & 4 & 146.7 & 62 & 3.69 & 3.190 & 20.00 & 1 & 0 & 4 & 2\\
+\hline
+\cellcolor{gray!6}{Merc 230} & \cellcolor{gray!6}{22.8} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{140.8} & \cellcolor{gray!6}{95} & \cellcolor{gray!6}{3.92} & \cellcolor{gray!6}{3.150} & \cellcolor{gray!6}{22.90} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{2}\\
+\hline
+Merc 280 & 19.2 & 6 & 167.6 & 123 & 3.92 & 3.440 & 18.30 & 1 & 0 & 4 & 4\\
+\hline
+\end{tabular}
+\end{table}
+
+\end{knitrout}
 
     
 \end{document}
